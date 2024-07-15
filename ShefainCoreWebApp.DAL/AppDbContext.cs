@@ -25,8 +25,12 @@ namespace ShefainCoreWebApp.DAL
         {
             modelBuilder.Entity<Person>().HasData(new List<Person>
             {
-                new Person { Id = 1, FirstName = "Md", LastName = "Shefain", EmailAddress = "shefain@gmail.com"},
-                new Person { Id = 2, FirstName = "shohana", LastName = "howlader", EmailAddress = "shohana@gmail.com"}
+                new Person() { Id = 1 , FirstName = "Md" , LastName = "Shefain" , EmailAddress = "shefain@gmail.com"},
+                new Person() { Id = 2 , FirstName = "Shohana" , LastName = "Howlader" , EmailAddress = "shohana@gmail.com"}
+            });
+            modelBuilder.Entity<Person>(e =>
+            {
+                e.HasMany(r => r.Addresses).WithOne(e => e.Person).OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Address>().HasData(new List<Address>
@@ -39,11 +43,11 @@ namespace ShefainCoreWebApp.DAL
 
             modelBuilder.Entity<LookUp>().HasData(new List<LookUp>
             {
-                new LookUp() {Code = "BD", Description = "Dhaka", LookUpType = LookUpType.State},
-                new LookUp() {Code = "JK", Description = "Saidpur", LookUpType = LookUpType.State},
-                new LookUp() {Code = "RK", Description = "Gazipur", LookUpType = LookUpType.State},
-                new LookUp() {Code = "PI", Description = "Banani", LookUpType = LookUpType.State},
-                
+                new LookUp() {Code = "DK", Description = "Dhaka", LookUpType = LookUpType.State},
+                new LookUp() {Code = "SDP", Description = "Saidpur", LookUpType = LookUpType.State},
+                new LookUp() {Code = "GP", Description = "Gazipur", LookUpType = LookUpType.State},
+                new LookUp() {Code = "BN", Description = "Banani", LookUpType = LookUpType.State},
+                new LookUp() {Code = "NL", Description = "nillphamari" , LookUpType= LookUpType.State},
             });
         }
 

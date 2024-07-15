@@ -21,5 +21,11 @@ namespace ShefainCoreWebApp.Core.Entities
         public List<Person> Parents { get; set; } = new List<Person>();
         public List<Person> Children { get; set; } = new List<Person>();
         public DateTime CreatedOn { get; set; }
+
+        //public bool  IsDeleted { get; set; }
+
+        public  List<Person> Parent { get; set; } = new List<Person> ();
+        public  List<Person> Childrens { get; set; } = new List<Person> () ;
+
     }
 }

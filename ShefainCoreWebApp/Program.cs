@@ -9,6 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ShefainCoreWebApp.DAL.AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("con")));
 
+builder.Services.AddScoped<IPeson>
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
